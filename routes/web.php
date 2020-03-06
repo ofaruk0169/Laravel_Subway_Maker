@@ -18,5 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/subs', function () {
-    return view('subs');
+    //get data from db
+    $subs = [
+        'type' => 'Italian BMT', 
+        'bread' => 'Flatbread',
+        'price' => 10
+    ];
+    return view('subs', $subs);
 });
