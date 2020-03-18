@@ -20,9 +20,10 @@ Route::get('/', function () {
 Route::get('/subs', function () {
     //get data from db
     $subs = [
-        'type' => 'Italian BMT', 
-        'bread' => 'Flatbread',
-        'price' => 10
+        ['type' => 'bmt', 'bread' => 'italian'],
+        ['type' => 'meatball', 'bread' => 'herbs and cheese'],
+        ['type' => 'breakfast', 'bread' => 'hearty italian']
     ];
-    return view('subs', $subs);
+
+    return view('subs', ['subs' => $subs]);
 });
