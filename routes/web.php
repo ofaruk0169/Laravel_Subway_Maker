@@ -17,13 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/subs', function () {
-    //get data from db
-    $subs = [
-        ['type' => 'bmt', 'bread' => 'italian'],
-        ['type' => 'meatball', 'bread' => 'herbs and cheese'],
-        ['type' => 'breakfast', 'bread' => 'hearty italian']
-    ];
+//Here you are defining the URL followed by the controller handling the function data manipulation. The @ shows the particular function
+// you are interested in
+Route::get('/subs', 'SubsController@index');
 
-    return view('subs', ['subs' => $subs]);
-});
+Route::get('subs/create', 'SubsController@create');
+
+Route::get('/subs/{id}', 'SubsController@show');
+
+

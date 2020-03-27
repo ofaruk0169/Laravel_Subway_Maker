@@ -17,7 +17,7 @@
     @endif
 
     <div class="content">
-    <img src="/img/pizza-house.png" alt="pizza logo">
+    <img src="/img/sub-shop.png" alt="sub logo">
         <div class="title m-b-md">
             
             Subs made your way!

@@ -9,7 +9,7 @@
                 Subs List
             </div>
             
-
+       
 
             <!-- @for($i = 0; $i < 5; $i++)
                 <p>The value of i is {{ $i }}</p>
@@ -21,13 +21,7 @@
 
             @foreach ($subs as $sub)
                 <div>
-                    {{ $loop->index }} {{ $sub['type'] }} - {{ $sub['bread']}}
-                    @if($loop->first)
-                        <span>first in the loop</span>
-                    @endif
-                    @if($loop->last)
-                        <span>Last in the loop </span>
-                    @endif
+                {{ $sub->name }} - {{ $sub->type }} - {{ $sub->bread }}
                 </div>
             @endforeach
 
