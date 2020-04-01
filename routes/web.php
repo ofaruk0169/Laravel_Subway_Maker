@@ -30,3 +30,8 @@ Route::get('/subs/{id}', 'SubsController@show');
 Route::delete('/subs/{id}', 'SubsController@destroy');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
