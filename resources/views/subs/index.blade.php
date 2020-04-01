@@ -1,30 +1,17 @@
     @extends('layouts.layout')
 
     @section('content')
-    <div class="flex-center position-ref full-height">
+    <div class="wrapper sub-index">
+    <h1>Sub Orders </h1>
+    @foreach ($subs as $sub)
+        <div class="sub-item">
+            <img src="/img/sub.png" alt="minisub">
+           <h4><a href="subs/{{ $sub->id }}"> {{ $sub->name }}</a></h4>
         
-
-        <div class="content">
-            <div class="title m-b-md">
-                Subs List
-            </div>
-            
-       
-
-            <!-- @for($i = 0; $i < 5; $i++)
-                <p>The value of i is {{ $i }}</p>
-            @endfor -->
-
-            <!-- @for($i = 0; $i < count($subs); $i++)
-                <p>{{ $subs[$i]['type'] }}</p>
-            @endfor -->
-
-            @foreach ($subs as $sub)
-                <div>
-                {{ $sub->name }} - {{ $sub->type }} - {{ $sub->bread }}
-                </div>
-            @endforeach
-
         </div>
+    @endforeach
+
     </div>
+            
+
     @endsection

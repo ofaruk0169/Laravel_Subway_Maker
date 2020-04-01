@@ -19,6 +19,7 @@ class CreateSubsTable extends Migration
             $table->string('type');
             $table->string('bread');
             $table->string('name');
+            $table->json('salad');
             //
         });
     }

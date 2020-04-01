@@ -7,38 +7,59 @@ use App\Sub;
 
 class SubsController extends Controller
 {
-    //index is a naming convention for the main /subs route. As it is the main page it is in theory the 'index'
-    //"Show" naming convention is a Laravel naming convention, i'm guessing because you are literally 'showing' an ID of a particular URL variable
-    
-    //functions are called "actions in Laravel"
+    //index all the records
     public function index() {
-        //This will return an object for each sub in the table.
+        
         //$subs = Sub::all();
-
-        //This gets all the values from the table, but orders them in ascending or descending order.
-        //You need the get(); function to retrive everything if all(); is not used
         //$subs = Sub::orderBy('name', 'desc')->get();
-
         //$subs = Sub::where('type', 'herbs and cheese')->get();
-        //This would only get the type if they were herbs and cheese
-
-        //The following gets the sub based on the latest on first
-        $subs = Sub::latest()->get();
        
-    
-    
+        $subs = Sub::latest()->get();
+        
         return view('subs.index', [
             'subs' => $subs,
         ]);
     }
 
+    //show a single record
     public function show($id) {
-        return view('subs.show', ['id' => $id]);
+
+        $sub = Sub::findOrFail($id);
+
+        return view('subs.show', ['sub' => $sub]);
     }
 
+
+    //create a new record. All naming conventions in Laravel
     public function create() {
 
         return view('subs.create');
+
+    }
+    //as we are storing the data. Redirect will return to the main page. 
+    public function store() {
+
+        // error_log(request('name')); This is a good way to debug. It diplsays the output in the localhost terminal
+        
+        $sub = new Sub();
+
+        $sub->name = request('name');
+        $sub->type = request('type');
+        $sub->bread = request('bread');
+        $sub->salad = request('salad');
+        
+
+        $sub->save();
+
+        return redirect('/')->with('mssg', 'Thanks for your order!');
+    }
+
+    public function destroy($id) {
+
+        $sub = Sub::findOrFail($id); 
+        $sub->delete();
+
+        return redirect('/subs');
 
     }
 }

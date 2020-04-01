@@ -1,14 +1,22 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="flex-center position-ref full-height">
-    
+<div class="wrapper sub-details">
+    <h1>Order for {{ $sub->name }}</h1>
+    <p class="type">Type - {{ $sub->type }}</p>
+    <p class="bread">Bread - {{ $sub->bread }}</p>
+    <p class="salad"> Extra Salad: </p>
 
-    <div class="content">
-        <div class="title m-b-md">
-            Subs List - {{ $id }}
-        </div>
-        
-    </div>
+    <ul>
+        @foreach($sub->salad as $salad)
+            <li> {{ $salad }}  </li>
+        @endforeach
+    </ul>
+    <form action="/subs/{{ $sub->id  }}" method="POST">
+        @csrf 
+        @method('DELETE')
+        <button>Complete Order</button>
+    </form>
 </div>
+<a href="/subs" class=back><- back to all subs</a>
 @endsection

@@ -23,6 +23,10 @@ Route::get('/subs', 'SubsController@index');
 
 Route::get('subs/create', 'SubsController@create');
 
+Route::post('/subs', 'SubsController@store');
+
 Route::get('/subs/{id}', 'SubsController@show');
+
+Route::delete('/subs/{id}', 'SubsController@destroy');
 
 
