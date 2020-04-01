@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    <p> <a href="/subs">View all Sub orders</a></p>
                 </div>
             </div>
         </div>

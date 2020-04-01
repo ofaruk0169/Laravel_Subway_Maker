@@ -19,19 +19,21 @@ Route::get('/', function () {
 
 //Here you are defining the URL followed by the controller handling the function data manipulation. The @ shows the particular function
 // you are interested in
-Route::get('/subs', 'SubsController@index');
+Route::get('/subs', 'SubsController@index')->middleware('auth');
 
 Route::get('subs/create', 'SubsController@create');
 
 Route::post('/subs', 'SubsController@store');
 
-Route::get('/subs/{id}', 'SubsController@show');
+Route::get('/subs/{id}', 'SubsController@show')->middleware('auth');
 
-Route::delete('/subs/{id}', 'SubsController@destroy');
+Route::delete('/subs/{id}', 'SubsController@destroy')->middleware('auth');
 
 
 
-Auth::routes();
+Auth::routes([
+    'register' => false
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

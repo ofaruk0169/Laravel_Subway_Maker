@@ -7,6 +7,11 @@ use App\Sub;
 
 class SubsController extends Controller
 {
+
+    // public function __construct() {
+    //     $this->middleware('auth');
+    // }
+
     //index all the records
     public function index() {
         
