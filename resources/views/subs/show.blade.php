@@ -12,7 +12,7 @@
             <li> {{ $salad }}  </li>
         @endforeach
     </ul>
-    <form action="/subs/{{ $sub->id  }}" method="POST">
+    <form action="{{ route('subs.destroy', $sub->id) }}" method="POST">
         @csrf 
         @method('DELETE')
         <button>Complete Order</button>

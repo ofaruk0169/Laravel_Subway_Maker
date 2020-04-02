@@ -23,7 +23,7 @@
             Subs made your way!
         </div>
         <p class="mssg"> {{ session('mssg') }}</p>
-        <a href="/subs/create">Order a Sub</a>
+        <a href="{{ route('subs.create')  }}">Order a Sub</a>
 
      
     </div>
