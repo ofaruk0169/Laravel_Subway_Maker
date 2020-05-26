@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link href="/css/main.css" rel="stylesheet">
+        <link rel="shortcut icon" sizes="114x114" href="{{ asset('assets/favicon.png') }}">
     </head>
     <body>
         @yield('content')
